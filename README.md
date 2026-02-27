@@ -20,7 +20,7 @@ O objetivo foi construir uma plataforma robusta, responsiva e com boa capacidade
 * Velocidade proporcional aos gatilhos
 * Direção proporcional ao joystick
 * Tração 4x4
-* Iluminação frontal e traseira em LED
+* Iluminação frontal
 * Controle PWM independente para cada lado do veículo
 
 ---
