@@ -1,70 +1,62 @@
-# 🚗 Veículo Microcontrolado com ESP32 e Controle Bluetooth
+# 🚗 Veículo Microcontrolado com ESP32
 
-Projeto desenvolvido durante o curso técnico em Mecatrônica, com foco em sistemas embarcados, controle de motores e comunicação sem fio.
-O veículo foi construído para uma competição prática entre equipes, conquistando o **1º lugar** nas provas realizadas.
+Projeto de veículo robótico controlado via Bluetooth desenvolvido durante o curso técnico em Mecatrônica. O sistema foi projetado com foco em controle proporcional, estabilidade e integração entre hardware e software embarcado.
 
----
-
-## 📌 Objetivo do projeto
-
-Desenvolver um veículo controlado remotamente com:
-
-* controle proporcional de velocidade
-* comunicação Bluetooth estável
-* boa relação entre torque, aceleração e autonomia
-* arquitetura simples e robusta para testes e manutenção
-
-O projeto serviu como aplicação prática de eletrônica, programação embarcada e integração hardware-software.
+O projeto conquistou **1º lugar em uma competição interna entre equipes**, destacando-se pelo desempenho e precisão de controle.
 
 ---
 
-## ⚙️ Arquitetura do sistema
+## 📌 Visão geral
 
-* **Microcontrolador:** ESP32
-* **Comunicação:** Bluetooth clássico
-* **Controle:** Gamepad DualShock 4
-* **Biblioteca:** Bluepad32
+O veículo utiliza um **ESP32** para receber comandos de um controle **DualShock 4** via Bluetooth, permitindo controle proporcional de velocidade e direção através dos gatilhos e analógicos.
 
-### Hardware
-
-* Tração 4x4 com motores DC 6V
-* 2 drivers TB6612 (ponte H dupla)
-* 4 LEDs brancos 5 mm (farol e lanterna)
-* Pack de baterias 2S2P reaproveitado de power bank
-  *(na fase inicial, utilizado em configuração 2S1P)*
+O objetivo foi construir uma plataforma robusta, responsiva e com boa capacidade de tração, aplicando conceitos de eletrônica, programação embarcada e controle de motores.
 
 ---
 
-## 🎮 Controle do veículo
+## 🧠 Funcionalidades
 
-O controle é feito via gamepad com leitura analógica:
-
-* Gatilhos → controle proporcional de velocidade
-* Joysticks → direção e variação de potência
-* PWM ajustado dinamicamente conforme intensidade do acionamento
-
-Isso permite aceleração progressiva e condução mais precisa em comparação a controles digitais simples.
-
----
-
-## 🧠 Conceitos aplicados
-
-* Controle de motores DC via PWM
-* Comunicação Bluetooth embarcada
-* Leitura analógica e mapeamento de sinais
-* Integração hardware-software
-* Testes práticos de desempenho e autonomia
+* Controle via Bluetooth com controle PS4
+* Velocidade proporcional aos gatilhos
+* Direção proporcional ao joystick
+* Tração 4x4
+* Iluminação frontal e traseira em LED
+* Controle PWM independente para cada lado do veículo
 
 ---
 
-## 🛠️ Como usar
+## ⚙️ Hardware utilizado
 
-1. Instale a IDE Arduino ou PlatformIO
-2. Instale a biblioteca **Bluepad32**
-3. Configure a placa ESP32
-4. Compile e envie o código para o microcontrolador
-5. Conecte o DualShock 4 via Bluetooth
-6. Energize o veículo e realize os testes
+* ESP32
+* 4 motores DC 6V
+* 2 drivers de motor TB6612FNG
+* Pack de baterias 2S2P (Li-ion reaproveitadas)
+* LEDs 5mm para iluminação
+
+---
+
+## 🧩 Arquitetura do sistema
+
+O ESP32 recebe os dados do controle via Bluetooth utilizando a biblioteca **Bluepad32**.
+Os valores analógicos são convertidos em sinais PWM, controlando velocidade e direção dos motores através dos drivers.
+
+Essa abordagem permite:
+
+* condução mais suave
+* melhor controle em curvas
+* resposta proporcional ao usuário
+
+---
+
+## 🏆 Resultados
+
+O veículo apresentou:
+
+* boa estabilidade
+* torque elevado
+* resposta rápida aos comandos
+
+O projeto obteve **1º lugar na competição interna**, validando as decisões de projeto e implementação.
 
 ---
 
@@ -72,31 +64,16 @@ Isso permite aceleração progressiva e condução mais precisa em comparação 
 
 ```
 veiculo-microcontrolado/
- ├── src/
-     └── veiculo_microcontrolado.ino
- └── README.md
+├── src/
+│   └── veiculo_microcontrolado.ino   # Código principal do ESP32
+└── README.md
 ```
 
 ---
 
-## 📈 Possíveis melhorias futuras
+## 🚀 Possíveis melhorias futuras
 
-* Controle de corrente dos motores
-* Telemetria via Bluetooth/Wi-Fi
-* Controle PID de velocidade
-* Chassi modular impresso em 3D
-* Monitoramento de bateria
-
----
-
-## 👨‍💻 Autor
-
-Henrique Sc
-Estudante de Engenharia de Controle e Automação
-Técnico em Mecatrônica
-
----
-
-## 📜 Licença
-
-Este projeto é aberto para fins educacionais e experimentais.
+* Telemetria via Wi-Fi
+* Controle por aplicativo próprio
+* Sensores de distância para assistência de direção
+* Suspensão otimizada
